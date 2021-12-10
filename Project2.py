@@ -7,10 +7,13 @@ root.geometry("500x500")
 root.title('CS Jeopardy!')
 root.resizable(False, False)
 
+finishScreen=tk.Frame(root, bg="#00008b", padx=5, pady=5)
+finishScreen.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 question = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 question.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 board = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 board.place(x=0, y=0, relwidth=1.0, relheight=1.0)
+
 
 multipleChoice=0
 playerAnswer=""
@@ -136,8 +139,6 @@ def rightAnswer():
     global score
     scoreLabel.config(text="Your score is: "+str(score))
     scoreLabel1.config(text="Your score is: "+str(score))
-    global questionsAnswered
-    questionsAnswered=questionsAnswered+1
 def wrongAnswer():
     correctOrWrong.configure(text="Incorrect")
     aButton.place_forget()
@@ -149,8 +150,6 @@ def wrongAnswer():
     gButton.place_forget()
     hButton.place_forget()
     continueButton.place(x=175,y=425)
-    global questionsAnswered
-    questionsAnswered=questionsAnswered+1
 def rightAnswerA():
     aButton.config(command=rightAnswer)
     bButton.config(command=wrongAnswer)
@@ -268,7 +267,7 @@ img18_fit = img18.subsample(2)
 img19 = tk.PhotoImage(file="functions800.png")
 img19_fit = img19.subsample(2)
 img20 = tk.PhotoImage(file="functions1000.png")
-img20_fit = img20.subsample(2)
+img20_fit = img20.subsample(3)
 
 
 
@@ -291,10 +290,7 @@ def ifElseStat200():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered+1
     ifElse200.grid_forget()
-    print(questionsAnswered)
 def ifElseStat400():
     correct==0
     correctOrWrong.config(text="")
@@ -309,8 +305,6 @@ def ifElseStat400():
     if(correct==0):
         score=score+0
     ifElse400.grid_forget()
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
 def ifElseStat600():
     correct==0
     correctOrWrong.config(text="")
@@ -324,9 +318,10 @@ def ifElseStat600():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ifElse600.grid_forget()
+    print(questionsAnswered)
 def ifElseStat800():
     correct==0
     correctOrWrong.config(text="")
@@ -340,9 +335,10 @@ def ifElseStat800():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ifElse800.grid_forget()
+    print(questionsAnswered)
 def ifElseStat1000():
     correct==0
     correctOrWrong.config(text="")
@@ -356,9 +352,10 @@ def ifElseStat1000():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ifElse1000.grid_forget()
+    print(questionsAnswered)
 #while loops
 def while200():
     correct==0
@@ -373,9 +370,10 @@ def while200():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     whileLoop200.grid_forget()
+    print(questionsAnswered)
 def while400():
     correct==0
     correctOrWrong.config(text="")
@@ -389,8 +387,8 @@ def while400():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     whileLoop400.grid_forget()
 def while600():
     correct==0
@@ -405,8 +403,8 @@ def while600():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     whileLoop600.grid_forget()
 def while800():
     correct==0
@@ -421,8 +419,8 @@ def while800():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     whileLoop800.grid_forget()
 def while1000():
     correct==0
@@ -437,8 +435,8 @@ def while1000():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     whileLoop1000.grid_forget()
 #lists and collections
 def listsAndCollect200():
@@ -454,8 +452,8 @@ def listsAndCollect200():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ListsAndCollections200.grid_forget()
 def listsAndCollect400():
     correct==0
@@ -470,8 +468,8 @@ def listsAndCollect400():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ListsAndCollections400.grid_forget()
 def listsAndCollect600():
     correct==0
@@ -486,8 +484,8 @@ def listsAndCollect600():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ListsAndCollections600.grid_forget()
 def listsAndCollect800():
     correct==0
@@ -502,8 +500,8 @@ def listsAndCollect800():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ListsAndCollections800.grid_forget()
 def listsAndCollect1000():
     correct==0
@@ -518,8 +516,8 @@ def listsAndCollect1000():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     ListsAndCollections1000.grid_forget()
 #functions
 def function200():
@@ -535,8 +533,8 @@ def function200():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     Functions200.grid_forget()
 def function400():
     correct==0
@@ -551,8 +549,8 @@ def function400():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     Functions400.grid_forget()
 def function600():
     correct==0
@@ -567,8 +565,8 @@ def function600():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     Functions600.grid_forget()
 def function800():
     correct==0
@@ -583,8 +581,8 @@ def function800():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     Functions800.grid_forget()
 def function1000():
     correct==0
@@ -599,10 +597,9 @@ def function1000():
         score=score+200
     if(correct==0):
         score=score+0
-    global questionsAnswered
-    questionsAnswered=questionsAnswered
+    
+    
     Functions1000.grid_forget()
-
 
 ifElseLabel=tk.Label(board, text="If-Else \n Statements").grid(row=0,column=0)
 ifElse200=tk.Button(board,text="200",height = 2, width = 6,command=ifElseStat200)
@@ -652,7 +649,5 @@ Functions800.grid(row=4,column=3,padx=10,pady=5)
 Functions1000=tk.Button(board,text="1000",height = 2, width = 6,command=function1000)
 Functions1000.grid(row=5,column=3,padx=10,pady=5)
 
-if(questionsAnswered==20):
-    print(hi)
 
 root.mainloop()
