@@ -17,10 +17,6 @@ board.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 
 multipleChoice=0
 playerAnswer=""
-score=0
-correct=1
-
-questionsAnswered=0
 
 
 # configure the grid
@@ -32,12 +28,7 @@ root.columnconfigure(3, weight=0)
 
 continueButton=tk.Button(question, text="Press to continue",command=board.tkraise)
 
-scoreLabel=tk.Label(question,text=("Your score is: "+str(score)))
-scoreLabel.pack(side=tk.BOTTOM)
-scoreLabel1=tk.Label(board,text=("Your score is: "+str(score)))
-scoreLabel1.grid(row=8,column=0)
 
-add=1
 
         
 
@@ -137,8 +128,6 @@ def rightAnswer():
     gButton.place_forget()
     hButton.place_forget()
     continueButton.place(x=175,y=425)
-    scoreLabel.config(text="Your score is: "+str(score))
-    scoreLabel1.config(text="Your score is: "+str(score))
 def wrongAnswer():
     correctOrWrong.configure(text="Incorrect")
     aButton.place_forget()
@@ -274,15 +263,11 @@ img20_fit = img20.subsample(3)
 pictureLabel = tk.Label(question, font = "50") 
 pictureLabel.pack()
 
-y=0
-
-
-
 
 
 #IfElse Loops
 def ifElseStat200():
-    correct==0
+    
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
@@ -290,317 +275,166 @@ def ifElseStat200():
     fourChoices()
     rightAnswerD()
     ifElse200.grid_forget()
-    print(y)
 def ifElseStat400():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img02_fit)
     fiveChoices()
     rightAnswerC()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
     ifElse400.grid_forget()
-    print(y)
 def ifElseStat600():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img03_fit)
     sevenChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ifElse600.grid_forget()
-    
 def ifElseStat800():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img04_fit)
     twoChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ifElse800.grid_forget()
-    
 def ifElseStat1000():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img05_fit)
     eightChoices()
     rightAnswerD()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ifElse1000.grid_forget()
-    
 #while loops
 def while200():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img06_fit)
     twoChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     whileLoop200.grid_forget()
-    
 def while400():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img07_fit)
     fourChoices()
     rightAnswerC()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     whileLoop400.grid_forget()
 def while600():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img08_fit)
     fiveChoices()
     rightAnswerE()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     whileLoop600.grid_forget()
 def while800():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img09_fit)
     fiveChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     whileLoop800.grid_forget()
 def while1000():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img10_fit)
     fiveChoices()
     rightAnswerC()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     whileLoop1000.grid_forget()
 #lists and collections
 def listsAndCollect200():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img11_fit)
     threeChoices()
     rightAnswerA()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ListsAndCollections200.grid_forget()
 def listsAndCollect400():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img12_fit)
     sixChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ListsAndCollections400.grid_forget()
 def listsAndCollect600():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img13_fit)
     threeChoices()
     rightAnswerA()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ListsAndCollections600.grid_forget()
 def listsAndCollect800():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img14_fit)
     eightChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ListsAndCollections800.grid_forget()
 def listsAndCollect1000():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img15_fit)
     sixChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     ListsAndCollections1000.grid_forget()
 #functions
 def function200():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img16_fit)
     sixChoices()
     rightAnswerF()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     Functions200.grid_forget()
 def function400():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img17_fit)
     twoChoices()
     rightAnswerB()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     Functions400.grid_forget()
 def function600():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img18_fit)
     twoChoices()
     rightAnswerA()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     Functions600.grid_forget()
 def function800():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img19_fit)
     fourChoices()
     rightAnswerD()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
-    
-    
     Functions800.grid_forget()
 def function1000():
-    correct==0
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
     pictureLabel.configure(image=img20_fit)
     sixChoices()
     rightAnswerE()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
     Functions1000.grid_forget()
 
+
+
 ifElseLabel=tk.Label(board, text="If-Else \n Statements").grid(row=0,column=0)
+
 ifElse200=tk.Button(board,text="200",height = 2, width = 6,command=ifElseStat200)
 ifElse200.grid(row=1,column=0,padx=10,pady=5)
 ifElse400=tk.Button(board,text="400",height = 2, width = 6,command=ifElseStat400)
@@ -648,6 +482,6 @@ Functions800.grid(row=4,column=3,padx=10,pady=5)
 Functions1000=tk.Button(board,text="1000",height = 2, width = 6,command=function1000)
 Functions1000.grid(row=5,column=3,padx=10,pady=5)
 
-
+y=0
 
 root.mainloop()
