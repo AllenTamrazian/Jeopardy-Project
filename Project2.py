@@ -7,13 +7,23 @@ root.geometry("500x500")
 root.title('CS Jeopardy!')
 root.resizable(False, False)
 
-
+endOfGameFrame = tk.Frame(root, bg="#00008b", padx=5, pady=5)
+endOfGameFrame.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 question = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 question.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 board = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 board.place(x=0, y=0, relwidth=1.0, relheight=1.0)
+endScreenLabel=tk.Label(endOfGameFrame, text="Thanks for \n playing \n CS Jeopardy!",font=("Courier", 50, "bold"))
+endScreenLabel.pack()
 
+score=0
 
+def endOfGame():
+    if(questionsAnswered==20):
+        endOfGameFrame.tkraise()
+    else:
+        global board
+        board.tkraise()
 
 
 # configure the grid
@@ -23,23 +33,23 @@ root.columnconfigure(2, weight=0)
 root.columnconfigure(3, weight=0)
 
 
-continueButton=tk.Button(question, text="Press to continue",command=board.tkraise)
+continueButton=tk.Button(question, text="Press to continue",command=endOfGame)  #button to press in order to go back to board
 
-
+questionsAnswered=0
 
         
 
-def twoChoices():
-    question.tkraise()
+def twoChoices():                       #setup a question that has only two answer choices
+    question.tkraise()                  #raise the question frame
     aButton.place(x=200, y=425)
     bButton.place(x=250, y=425)
-    cButton.place_forget()
+    cButton.place_forget()              #hide the options that do not apply
     dButton.place_forget()
     eButton.place_forget()
     fButton.place_forget()
     gButton.place_forget()
     hButton.place_forget()
-def threeChoices():
+def threeChoices():                     #setup a question that has only three answer choices
     question.tkraise()
     aButton.place(x=175, y=425)
     bButton.place(x=225, y=425)
@@ -49,7 +59,7 @@ def threeChoices():
     fButton.place_forget()
     gButton.place_forget()
     hButton.place_forget()
-def fourChoices():
+def fourChoices():                      #setup a question that has only four answer choices
     question.tkraise()
     aButton.place(x=150, y=425)
     bButton.place(x=200, y=425)
@@ -59,7 +69,7 @@ def fourChoices():
     fButton.place_forget()
     gButton.place_forget()
     hButton.place_forget()
-def fiveChoices():
+def fiveChoices():                      #setup a question that has only five answer choices
     question.tkraise()
     aButton.place(x=125, y=425)
     bButton.place(x=175, y=425)
@@ -69,17 +79,17 @@ def fiveChoices():
     fButton.place_forget()
     gButton.place_forget()
     hButton.place_forget()
-def sixChoices():
+def sixChoices():                       #setup a question that has only six answer choices
     question.tkraise()
-    aButton.place(x=50, y=425)
-    bButton.place(x=100, y=425)
-    cButton.place(x=150, y=425)
-    dButton.place(x=200, y=425)
-    eButton.place(x=250, y=425)
-    fButton.place(x=300, y=425)
+    aButton.place(x=100, y=425)
+    bButton.place(x=150, y=425)
+    cButton.place(x=200, y=425)
+    dButton.place(x=250, y=425)
+    eButton.place(x=300, y=425)
+    fButton.place(x=350, y=425)
     gButton.place_forget()
     hButton.place_forget()
-def sevenChoices():
+def sevenChoices():                     #setup a question that has only seven answer choices
     question.tkraise()
     aButton.place(x=75, y=425)
     bButton.place(x=125, y=425)
@@ -89,20 +99,19 @@ def sevenChoices():
     fButton.place(x=325, y=425)
     gButton.place(x=375, y=425)
     hButton.place_forget()
-def eightChoices():
+def eightChoices():                     #setup a question that has only eight answer choices
     question.tkraise()
-    aButton.place(x=0, y=425)
-    bButton.place(x=50, y=425)
-    cButton.place(x=100, y=425)
-    dButton.place(x=150, y=425)
-    eButton.place(x=200, y=425)
-    fButton.place(x=250, y=425)
-    gButton.place(x=300, y=425)
-    hButton.place(x=350, y=425)
+    aButton.place(x=50, y=425)
+    bButton.place(x=100, y=425)
+    cButton.place(x=150, y=425)
+    dButton.place(x=200, y=425)
+    eButton.place(x=250, y=425)
+    fButton.place(x=300, y=425)
+    gButton.place(x=350, y=425)
+    hButton.place(x=400, y=425)
 
 
-optionAnswers=0
-aButton = tk.Button(question, text="a")
+aButton = tk.Button(question, text="a")     #setup buttons for multiple choice
 bButton =tk.Button(question,text="b")
 cButton =tk.Button(question,text="c")
 dButton =tk.Button(question,text="d")
@@ -110,12 +119,27 @@ eButton=tk.Button(question,text="e")
 fButton = tk.Button(question, text="f")
 gButton =tk.Button(question,text="g")
 hButton =tk.Button(question,text="h")
-correctOrWrong=tk.Label(question,text="")
-correctOrWrong.pack(side=tk.TOP)
+correctOrWrong=tk.Label(question,text="")   #label that says if player is right or wrong
+correctOrWrong.pack(side=tk.TOP)            #place label on top
 
 
-def rightAnswer():
-    correctOrWrong.configure(text=" Correct ")
+
+def rightAnswer():                          #What to do when you get an answer right
+    correctOrWrong.configure(text=" Correct ")  #tell player that they are correct
+    aButton.place_forget()
+    bButton.place_forget()
+    cButton.place_forget()
+    dButton.place_forget()
+    eButton.place_forget()
+    fButton.place_forget()
+    gButton.place_forget()
+    hButton.place_forget()
+    continueButton.place(x=175,y=425)       #place the continue button to go back to board
+    global questionsAnswered
+    questionsAnswered=questionsAnswered+1   #increase number of questions answered
+    
+def wrongAnswer():                          #What do do when you get an answer wrong
+    correctOrWrong.configure(text="Incorrect")  #tel player they are incorrect
     aButton.place_forget()
     bButton.place_forget()
     cButton.place_forget()
@@ -125,18 +149,9 @@ def rightAnswer():
     gButton.place_forget()
     hButton.place_forget()
     continueButton.place(x=175,y=425)
-def wrongAnswer():
-    correctOrWrong.configure(text="Incorrect")
-    aButton.place_forget()
-    bButton.place_forget()
-    cButton.place_forget()
-    dButton.place_forget()
-    eButton.place_forget()
-    fButton.place_forget()
-    gButton.place_forget()
-    hButton.place_forget()
-    continueButton.place(x=175,y=425)
-def rightAnswerA():
+    global questionsAnswered
+    questionsAnswered=questionsAnswered+1   #increase number of questions answered
+def rightAnswerA():                         #When A is the right answer
     aButton.config(command=rightAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -145,7 +160,7 @@ def rightAnswerA():
     fButton.config(command=wrongAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerB():
+def rightAnswerB():                         #When B is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=rightAnswer)
     cButton.config(command=wrongAnswer)
@@ -154,7 +169,7 @@ def rightAnswerB():
     fButton.config(command=wrongAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerC():
+def rightAnswerC():                         #When C is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=rightAnswer)
@@ -163,7 +178,7 @@ def rightAnswerC():
     fButton.config(command=wrongAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerD():
+def rightAnswerD():                         #When D is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -172,7 +187,7 @@ def rightAnswerD():
     fButton.config(command=wrongAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerE():
+def rightAnswerE():                         #When E is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -181,7 +196,7 @@ def rightAnswerE():
     fButton.config(command=wrongAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerF():
+def rightAnswerF():                         #When F is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -190,7 +205,7 @@ def rightAnswerF():
     fButton.config(command=rightAnswer)
     gButton.config(command=wrongAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerG():
+def rightAnswerG():                         #When G is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -199,7 +214,7 @@ def rightAnswerG():
     fButton.config(command=wrongAnswer)
     gButton.config(command=rightAnswer)
     hButton.config(command=wrongAnswer)
-def rightAnswerH():
+def rightAnswerH():                         #When H is the right answer
     aButton.config(command=wrongAnswer)
     bButton.config(command=wrongAnswer)
     cButton.config(command=wrongAnswer)
@@ -210,9 +225,7 @@ def rightAnswerH():
     hButton.config(command=rightAnswer)
 
 
-
-
-
+#prep images for each questions
 
 img01 = tk.PhotoImage(file="IfElse200.png")
 img01_fit = img01.subsample(2)
@@ -257,20 +270,20 @@ img20_fit = img20.subsample(3)
 
 
 
-pictureLabel = tk.Label(question, font = "50") 
+pictureLabel = tk.Label(question, font = "50") #create picture label to put images on
 pictureLabel.pack()
 
 
 
 #IfElse Loops
-def ifElseStat200():
-    correctOrWrong.config(text="")
-    continueButton.place_forget()
-    question.tkraise()
-    pictureLabel.configure(image=img01_fit)
-    fourChoices()
-    rightAnswerD()
-    ifElse200.grid_forget()
+def ifElseStat200():                    #command for respective name
+    correctOrWrong.config(text="")      #reset label that shows if player is correct
+    continueButton.place_forget()       #hide the continue button
+    question.tkraise()                  #raise the question frame
+    pictureLabel.configure(image=img01_fit) #set the image to the respecting picture
+    fourChoices()                       #number of choices for problem
+    rightAnswerD()                      #what the answer is for the problem
+    ifElse200.grid_forget()             #remove the button from the board
 def ifElseStat400():
     correctOrWrong.config(text="")
     continueButton.place_forget()
@@ -429,10 +442,9 @@ def function1000():
 
 
 
-ifElseLabel=tk.Label(board, text="If-Else \n Statements").grid(row=0,column=0)
-
-ifElse200=tk.Button(board,text="200",height = 2, width = 6,command=ifElseStat200)
-ifElse200.grid(row=1,column=0,padx=10,pady=5)
+ifElseLabel=tk.Label(board, text="If-Else \n Statements").grid(row=0,column=0)      #create a label to show the category name
+ifElse200=tk.Button(board,text="200",height = 2, width = 6,command=ifElseStat200)   #create button for specific question
+ifElse200.grid(row=1,column=0,padx=10,pady=5)                                       #place into grid
 ifElse400=tk.Button(board,text="400",height = 2, width = 6,command=ifElseStat400)
 ifElse400.grid(row=2,column=0,padx=10,pady=5)
 ifElse600=tk.Button(board,text="600",height = 2, width = 6,command=ifElseStat600)
