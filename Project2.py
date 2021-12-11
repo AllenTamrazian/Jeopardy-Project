@@ -19,6 +19,7 @@ multipleChoice=0
 playerAnswer=""
 score=0
 correct=1
+
 questionsAnswered=0
 
 
@@ -36,7 +37,9 @@ scoreLabel.pack(side=tk.BOTTOM)
 scoreLabel1=tk.Label(board,text=("Your score is: "+str(score)))
 scoreLabel1.grid(row=8,column=0)
 
+add=1
 
+        
 
 def twoChoices():
     question.tkraise()
@@ -134,9 +137,6 @@ def rightAnswer():
     gButton.place_forget()
     hButton.place_forget()
     continueButton.place(x=175,y=425)
-    global correct
-    correct=1
-    global score
     scoreLabel.config(text="Your score is: "+str(score))
     scoreLabel1.config(text="Your score is: "+str(score))
 def wrongAnswer():
@@ -274,6 +274,10 @@ img20_fit = img20.subsample(3)
 pictureLabel = tk.Label(question, font = "50") 
 pictureLabel.pack()
 
+y=0
+
+
+
 
 
 #IfElse Loops
@@ -285,12 +289,8 @@ def ifElseStat200():
     pictureLabel.configure(image=img01_fit)
     fourChoices()
     rightAnswerD()
-    if(correct==1):
-        global score
-        score=score+200
-    if(correct==0):
-        score=score+0
     ifElse200.grid_forget()
+    print(y)
 def ifElseStat400():
     correct==0
     correctOrWrong.config(text="")
@@ -305,6 +305,7 @@ def ifElseStat400():
     if(correct==0):
         score=score+0
     ifElse400.grid_forget()
+    print(y)
 def ifElseStat600():
     correct==0
     correctOrWrong.config(text="")
@@ -321,7 +322,7 @@ def ifElseStat600():
     
     
     ifElse600.grid_forget()
-    print(questionsAnswered)
+    
 def ifElseStat800():
     correct==0
     correctOrWrong.config(text="")
@@ -338,7 +339,7 @@ def ifElseStat800():
     
     
     ifElse800.grid_forget()
-    print(questionsAnswered)
+    
 def ifElseStat1000():
     correct==0
     correctOrWrong.config(text="")
@@ -355,7 +356,7 @@ def ifElseStat1000():
     
     
     ifElse1000.grid_forget()
-    print(questionsAnswered)
+    
 #while loops
 def while200():
     correct==0
@@ -373,7 +374,7 @@ def while200():
     
     
     whileLoop200.grid_forget()
-    print(questionsAnswered)
+    
 def while400():
     correct==0
     correctOrWrong.config(text="")
@@ -597,8 +598,6 @@ def function1000():
         score=score+200
     if(correct==0):
         score=score+0
-    
-    
     Functions1000.grid_forget()
 
 ifElseLabel=tk.Label(board, text="If-Else \n Statements").grid(row=0,column=0)
@@ -648,6 +647,7 @@ Functions800=tk.Button(board,text="800",height = 2, width = 6,command=function80
 Functions800.grid(row=4,column=3,padx=10,pady=5)
 Functions1000=tk.Button(board,text="1000",height = 2, width = 6,command=function1000)
 Functions1000.grid(row=5,column=3,padx=10,pady=5)
+
 
 
 root.mainloop()
