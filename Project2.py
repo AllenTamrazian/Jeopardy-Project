@@ -7,16 +7,13 @@ root.geometry("500x500")
 root.title('CS Jeopardy!')
 root.resizable(False, False)
 
-finishScreen=tk.Frame(root, bg="#00008b", padx=5, pady=5)
-finishScreen.place(x=0, y=0, relwidth=1.0, relheight=1.0)
+
 question = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 question.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 board = tk.Frame(root, bg="#00008b", padx=5, pady=5)
 board.place(x=0, y=0, relwidth=1.0, relheight=1.0)
 
 
-multipleChoice=0
-playerAnswer=""
 
 
 # configure the grid
@@ -267,7 +264,6 @@ pictureLabel.pack()
 
 #IfElse Loops
 def ifElseStat200():
-    
     correctOrWrong.config(text="")
     continueButton.place_forget()
     question.tkraise()
@@ -482,6 +478,5 @@ Functions800.grid(row=4,column=3,padx=10,pady=5)
 Functions1000=tk.Button(board,text="1000",height = 2, width = 6,command=function1000)
 Functions1000.grid(row=5,column=3,padx=10,pady=5)
 
-y=0
 
 root.mainloop()
